@@ -38,7 +38,7 @@ It takes the first item and puts it in a seperate list, and then takes the next 
 ### Quick sort
 Quick sort is a divide and conquer algortihm which uses a pivot, often the last item, and putting it in the middle by comparing anything smaller to the left, and anything bigger to the right. It is not sorted yet. 
 It then takes more pivots in the two list; the smaller and the larger. going until 
-## Advantages
+### Advantages
 - Effiicient on large sets
 - Small amount of memory
 

@@ -25,54 +25,36 @@ void DisplayInventory(const std::vector<Item>& items)
 void SortByName(std::vector<Item>& items, bool ascending = true)
 {
     int listSize = items.size();
-    bool swapped;
     if (ascending)
     {
-        swapped = false; // checking whether a swap has happened
-        for  (int X = 0; X < listSize-1; X++ )
+        for  (int X = 1; X < listSize; ++X ) // going through each element in the list
         {
-            swapped = false;
-            for (int Y = 0; Y < listSize- X - 1; Y++)
+            std::string sortSpace = items[X].name; // gets the value of the to be sorted element, to be used to compare to the sorted elements
+            int sortedKey = X -1; // gets the value of the nearest sorted 
+            while (sortedKey >= 0 && items[sortedKey].name < sortSpace) // compares through the sorted list until it gets to where it is either too big or toom small
             {
                 
-                if ( items[(Y)].name >  items[(Y+1)].name)
-                {
-                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
-                    swapped = true;
-                }
-                
+                std::swap(items[sortedKey+1],items[sortedKey]); // swaps the places of the two elements if the current one is not in the right place
+                sortedKey = sortedKey - 1;
             }
-            if (!swapped)
-            {
-                break;
-            }
+            items[sortedKey+1].name = sortSpace; // goes to next element to be sorted (moves the sorted list along)
         }
     }
     else
     {
-        swapped = false; // checking whether a swap has happened
-        for  (int X = 0; X < listSize-1; X++ )
+        for  (int X = 1; X < listSize; ++X ) // going through each element in the list
         {
-            swapped = false;
-            for (int Y = 0; Y < listSize- X - 1; Y++)
+            std::string sortSpace = items[X].name;
+            int sortedKey = X -1;
+            while (sortedKey >= 0 && items[sortedKey].name > sortSpace)
             {
                 
-                if ( items[(Y)].name <  items[(Y+1)].name)
-                {
-                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
-                    swapped = true;
-                }
-                
+                std::swap(items[sortedKey+1],items[sortedKey]);
+                sortedKey = sortedKey - 1;
             }
-            if (!swapped)
-            {
-                break;
-            }
+            items[sortedKey+1].name = sortSpace;
         }
     }
-   
-   
-   
    
    
 }
@@ -81,49 +63,34 @@ void SortByName(std::vector<Item>& items, bool ascending = true)
 void SortByValue(std::vector<Item>& items, bool ascending = true)
 {
     int listSize = items.size();
-    bool swapped;
     if (ascending)
     {
-        swapped = false; // checking whether a swap has happened
-        for  (int X = 0; X < listSize-1; X++ )
+        for  (int X = 1; X < listSize; ++X ) // going through each element in the list
         {
-            swapped = false;
-            for (int Y = 0; Y < listSize- X - 1; Y++)
+            int sortSpace = items[X].value; // gets the value of the to be sorted element, to be used to compare to the sorted elements
+            int sortedKey = X -1; // gets the value of the nearest sorted 
+            while (sortedKey >= 0 && items[sortedKey].value < sortSpace) // compares through the sorted list until it gets to where it is either too big or toom small
             {
                 
-                if ( items[(Y)].value <  items[(Y+1)].value)
-                {
-                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
-                    swapped = true;
-                }
-                
+                std::swap(items[sortedKey+1],items[sortedKey]);  // swaps the places of the two elements if the current one is not in the right place
+                sortedKey = sortedKey - 1;
             }
-            if (!swapped)
-            {
-                break;
-            }
+            items[sortedKey+1].value = sortSpace; // goes to next element to be sorted (moves the sorted list along)
         }
     }
     else
     {
-        swapped = false; // checking whether a swap has happened
-        for  (int X = 0; X < listSize-1; X++ )
+        for  (int X = 1; X < listSize; ++X ) // going through each element in the list
         {
-            swapped = false;
-            for (int Y = 0; Y < listSize- X - 1; Y++)
+            int sortSpace = items[X].value;
+            int sortedKey = X -1;
+            while (sortedKey >= 0 && items[sortedKey].value > sortSpace)
             {
                 
-                if ( items[(Y)].value >  items[(Y+1)].value)
-                {
-                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
-                    swapped = true;
-                }
-                
+                std::swap(items[sortedKey+1],items[sortedKey]);
+                sortedKey = sortedKey - 1;
             }
-            if (!swapped)
-            {
-                break;
-            }
+            items[sortedKey+1].value = sortSpace;
         }
     }
 }
@@ -145,7 +112,7 @@ int main()
     SortByName(items, true); // Sort by name in ascending order
     DisplayInventory(items);
     
-    std::cout << "\nSorted by Name (Unaplphabetically):" << std::endl;
+    std::cout << "\nSorted by Name (Antiaplphabetically):" << std::endl;
     SortByName(items, false); // Sort by name in ascending order
     DisplayInventory(items);
 
@@ -159,3 +126,112 @@ int main()
 
     return 0;
 }
+
+
+
+/*// Function to sort items by name (alphabetically)
+void SortByName(std::vector<Item>& items, bool ascending = true)
+{
+    int listSize = items.size();
+    bool swapped;
+    if (ascending)
+    {
+        swapped = false; // checking whether a swap has happened
+        for  (int X = 0; X < listSize-1; X++ ) // going through each element in the list
+        {
+            swapped = false;
+            for (int Y = 0; Y < listSize- X - 1; Y++) // getting element and going through rest of list checking
+            {
+                
+                if ( items[(Y)].name >  items[(Y+1)].name) // comparing the item object attributes
+                {
+                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
+                    swapped = true;
+                }
+                
+            }
+            if (!swapped) // if no swaps end 
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        swapped = false; // checking whether a swap has happened
+        for  (int X = 0; X < listSize-1; X++ ) // going through each element in the list
+        {
+            swapped = false;
+            for (int Y = 0; Y < listSize- X - 1; Y++) // getting element and going through rest of list checking
+            {
+                
+                if ( items[(Y)].name <  items[(Y+1)].name) // comparing the item object attributes
+                {
+                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
+                    swapped = true;
+                }
+                
+            }
+            if (!swapped) // if no swaps end
+            {
+                break;
+            }
+        }
+    }
+   
+   
+   
+   
+   
+}
+
+// Function to sort items by value (ascending/descending)
+void SortByValue(std::vector<Item>& items, bool ascending = true)
+{
+    int listSize = items.size();
+    bool swapped;
+    if (ascending)
+    {
+        swapped = false; // checking whether a swap has happened
+        for  (int X = 0; X < listSize-1; X++ ) // going through each element in the list
+        {
+            swapped = false;
+            for (int Y = 0; Y < listSize- X - 1; Y++) // getting element and going through rest of list checking
+            {
+                
+                if ( items[(Y)].value <  items[(Y+1)].value) // comparing the item object attributes
+                {
+                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
+                    swapped = true;
+                }
+                
+            }
+            if (!swapped) // if no swaps end
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        swapped = false; // checking whether a swap has happened
+        for  (int X = 0; X < listSize-1; X++ ) // going through each element in the list
+        {
+            swapped = false;
+            for (int Y = 0; Y < listSize- X - 1; Y++) // getting element and going through rest of list checking
+            {
+                
+                if ( items[(Y)].value >  items[(Y+1)].value) // comparing the item object attributes
+                {
+                    std::swap(items[Y], items[Y+1]);// C++ vector swap function
+                    swapped = true;
+                }
+                
+            }
+            if (!swapped) // if no swaps end
+            {
+                break;
+            }
+        }
+    }
+}*/

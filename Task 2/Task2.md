@@ -16,10 +16,12 @@ Next i need to look at the tasks and break down the different requirements into 
 
 
 ### Core Gameplay:
-1. Maths Excercise
-    - Choice of excerise menu
+1. Maths Exercise 
+    - Choice of exercise menu; +, -, x, /
     - Generating and showcasing questions
+    - Answer Checking
     - Increasing difficulty
+
 
 
 
@@ -34,39 +36,42 @@ Next i need to look at the tasks and break down the different requirements into 
     - Pop up instruction boxes
     - Feedback messages
 
--
--
--
--
-
 
 ### Localization
--
--
--
--
--
+1. Translations of text for different languages
+    - Support for English
+    - Spanish
+    - Korean
+
 
 
 ### User Interface
--
--
--
--
--
-
+1. Menus 
+    - Clear and easy to navigate for primary school students. 
+    - Making it cross platform usable
+2. Buttons
+    - Distinct, understandable buttons
+3. Colours and readability
+    - Make sure accessible ( Colour blindness )
+    - Nice looking style
+4. Positioning
+    - Easy use and easy viewing of buttons and other element.
+5. Displaying questions
+    - Clear and big enough to see easily, good font.
+    - 
 
 ### Rewards System 
--
--
--
--
--
+- Creating badges
+- Asigning point values for rewards to exercises 
+- Pop ups and overview of rewards
+
 
 ### Sound Effects and Animations
--
--
--
--
--
+- Sounds on pressing buttons
+- Sounds for wrong and right answer
+- Animations for questions popping up
 
+
+With the tasks figured out for each sections, then assigning when they should be done and other tasks like testing.
+Ive set out the trello board into sprints with a section for each developer. So that a developer could go to their section in the week it is, and figure out what their tasks were.
+There were some design tasks that would need to be done, so i assigned that work to whoever didnt have anything to do that week.

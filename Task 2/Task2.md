@@ -75,3 +75,6 @@ Next i need to look at the tasks and break down the different requirements into 
 With the tasks figured out for each sections, then assigning when they should be done and other tasks like testing.
 Ive set out the trello board into sprints with a section for each developer. So that a developer could go to their section in the week it is, and figure out what their tasks were.
 There were some design tasks that would need to be done, so i assigned that work to whoever didnt have anything to do that week.
+
+![ScreenShot](/TrelloScS.png)
+

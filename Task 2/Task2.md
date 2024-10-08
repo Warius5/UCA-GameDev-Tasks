@@ -92,4 +92,3 @@ The practise on creating a plan for a project using sprints was useful to see ho
 In the future i will probably research the best way to layout a trello board for this type of task, as the way i have done it, is probably not the most straightforward to use.
 <br>
 Perhaps more details on the task could be good as well but its hard to think of all the different parts without sitting and figuring it out with the client.
->>>>>>> c86ac1d0d0b2f04a20170ecf17c02b7c3f71020f

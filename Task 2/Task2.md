@@ -78,3 +78,13 @@ There were some design tasks that would need to be done, so i assigned that work
 
 
 <iframe src = "https://trello.com/b/ep63Sd4m.html" frameBorder="0" width="50%" height="300"> </iframe>
+
+
+
+## Reflection
+
+The practise on creating a plan for a project using sprints was useful to see how extensive planning can make it easier for someone to complete a task.
+<br>
+In the future i will probably research the best way to layout a trello board for this type of task, as the way i have done it, is probably not the most straightforward to use.
+<br>
+Perhaps more details on the task could be good as well but its hard to think of all the different parts without sitting and figuring it out with the client.

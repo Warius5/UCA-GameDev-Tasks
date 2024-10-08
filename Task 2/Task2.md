@@ -77,4 +77,4 @@ Ive set out the trello board into sprints with a section for each developer. So 
 There were some design tasks that would need to be done, so i assigned that work to whoever didnt have anything to do that week.
 
 
-![ScreenShot](./TrelloScs.png)
+<iframe src = "https://trello.com/b/ep63Sd4m.html" frameBorder="0" width="50%" height="300"> </iframe>

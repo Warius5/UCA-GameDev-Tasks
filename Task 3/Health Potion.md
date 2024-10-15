@@ -87,3 +87,9 @@ Then output the amount of health if it didn’t go to 100.
         }
     }
 ```
+
+Addition
+As an addition i want to give differnet ways of using up the health potions in different ways.
+Such as doing it by weight or by money value.
+I might try do the weight by an inputted value to get rid of. So uses heaviest -> lightest to use up a number of potions closest to that value.
+I added a weight value to the potions and added a new subroutine in the HealPlayers ( aswell as split up the ccurrent one)

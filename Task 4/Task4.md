@@ -1,7 +1,23 @@
+# Task 4 Branching Dialogue System
+
+Advanced Programming
+
+Ben Powell
+
+2204331
+
+Branching Dialogue
+
+
 Looked at example of how to set up C# trees from the presentation.
 
 
 Research the best way to set out the question data.
+
+### Trees
+- Specialized structure to store data in a hierarchical manner
+- Central and sub nodes
+- Have left and right nodes
 
 Created big list of the nodes with questions.
 
@@ -9,7 +25,7 @@ Experimented the best way of connecting the nodes together.
 Had some issue with changing the example tree code from the presentation into working for our purpose as our one, was a multi node layers. 
 Had some issues with encapsulation, and getting the function to call the root node, by root being built at the start. Could then access the root and start the node traversal.
 Some issues with the online compiler, but it seemed to work fine.
-
+(Introduction to Tree Data Structure - GeeksforGeeks, s.d.)
 ```cpp
 using System;
 using System.Collections.Generic;
@@ -109,6 +125,8 @@ public class Program
 ```
 For an extra thing i wanted to create a input verification, so that anything that isnt yes or no would not be accepted or cause issues.
 
+
+## Outcome
 ```cpp
 using System;
 using System.Collections.Generic;
@@ -141,38 +159,38 @@ public class DialogueSystem
         // Task for student: Build the dialogue tree structure here, creating connections between nodes
         DialogueNode root = new DialogueNode("Would you kill this person?", false);
         DialogueNode first = new DialogueNode("Would you do it yourself?",false); // yes
-        DialogueNode second = new DialogueNode("Hand your self in?",false); //  no
+        DialogueNode second = new DialogueNode("Help to save this person?",false); //  no
         root.yes = first;
         root.no = second;
         
         // first
-        DialogueNode third = new DialogueNode("Would you like to run away?",true); // yes, end
+        DialogueNode third = new DialogueNode("Would you like to run away?",false); // yes, end
         DialogueNode fourth = new DialogueNode("Would you hide the body?",false); // no
         first.yes = third;
         first.no = fourth;
-        third.no = first;
+        third.no = second;
         
         // second
-        DialogueNode fifth = new DialogueNode("Are you sure?",false); // yes, end
-        DialogueNode sixth = new DialogueNode("",true); // no
+        DialogueNode fifth = new DialogueNode("Would you sacrifice yourself?",false); // yes, end
+        DialogueNode sixth = new DialogueNode("The police are coming, run quick?",false); // no
         second.yes = fifth;
         second.no = sixth;
         
         // fourth
-        DialogueNode ninth = new DialogueNode("9",true); // yes, end
-        DialogueNode tenth = new DialogueNode("10",true); // no, end
+        DialogueNode ninth = new DialogueNode("You have successfully survived",true); // yes, end
+        DialogueNode tenth = new DialogueNode("The body was found",true); // no, end
         fourth.yes = ninth;
         fourth.no = tenth;
-        
-        
+        third.yes = ninth;
+        sixth.no = tenth;
         // fifth
-        DialogueNode seventh = new DialogueNode("7",true); // yes, end
-        DialogueNode eighth = new DialogueNode("8",true); // no, end 
+        DialogueNode seventh = new DialogueNode("You have been killed, but you save someone",true); // yes, end
+        DialogueNode eighth = new DialogueNode("The man has been killed, but you lived",true); // no, end 
         fifth.yes = seventh;
         fifth.no = eighth;
         
         return root;
-        
+        /* This sets up the tree, with a bool to determine if its an end node or not */
         
     }
     
@@ -183,9 +201,10 @@ public class DialogueSystem
         bool accepted = false;
         
         if (node != null) {
-            Console.WriteLine(node.question);
-            while (accepted == false )
+            
+            while (accepted == false && node.endingNode == false)
             {
+                Console.WriteLine(node.question);
                 answer = Console.ReadLine(); 
                 answer = answer.ToLower();
                 if (answer == "yes")
@@ -199,7 +218,7 @@ public class DialogueSystem
                 else
                 {
                 Console.WriteLine("Please answer again with yes or no");
-                Console.WriteLine(node.question);
+                
                 }
                 
             }
@@ -208,15 +227,20 @@ public class DialogueSystem
             {
                 StartDialogue(node.yes);
             }
-            else
+            else if (answer == "no")
             {
                 StartDialogue(node.no);
+            }
+            
+            else
+            {
+                Console.WriteLine(node.question);
             }
             
         
         }
         
-        
+        /* this includes the validation of the input so it will only accept yes or no, which is pretty useful int stopping any errors caused by user input*/
         
     }
 }
@@ -234,3 +258,20 @@ public class Program
     }
 }
 ```
+## Output
+Would you kill this person?<br>
+yes<br>
+Would you do it yourself?<br>
+no<br>
+Would you hide the body?<br>
+yes<br>
+You have successfully survived<br>
+End of questions
+
+
+## Reflection
+
+I think i struggled a bit in how to layout and set up the tree, but eventually i got it to work. I think there is probably a better way to do it, if i rebuilt it. I think using diagrams to plan out how it should be helped understand how the tree should flow, but maybe more planning on how it should work and be implemented would have made it more clear.
+
+Bibliograpy<br>
+Introduction to Tree Data Structure - GeeksforGeeks (s.d.) At: https://www.geeksforgeeks.org/introduction-to-tree-data-structure/ (Accessed  03/12/2024).
